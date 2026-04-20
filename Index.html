@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voixverse Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 🔥 Startup Image -->
+<div id="startup">
+  <img src="https://files.catbox.moe/ouqzfy.jpg" alt="intro">
+</div>
+
+<!-- Top Title -->
+<div class="top-bar">
+  <h1 class="glow">Voixverse Studio</h1>
+</div>
+
+<!-- Main -->
+<div class="container" id="main">
+
+  <h2>Enter your TG ID</h2>
+  <input type="text" id="tgid" placeholder="Enter TG ID">
+  <button onclick="verify()">Verify</button>
+
+  <div class="loader" id="loader">
+    <div></div><div></div><div></div>
+  </div>
+
+</div>
+
+<!-- Success -->
+<div class="success" id="successBox">
+  <h2>✔ Verified</h2>
+  <p>Congratulations You're Verified<br>By - Team VVS</p>
+</div>
+
+<!-- Form -->
+<div id="formSection">
+  <h3>Enter your details</h3>
+
+  <input type="text" id="name" placeholder="Name">
+  <input type="text" id="number" placeholder="Number">
+  <input type="email" id="email" placeholder="Email">
+  <input type="text" id="tg" placeholder="TG ID">
+  <input type="file" id="photo">
+
+  <button onclick="sendData()">Submit</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
